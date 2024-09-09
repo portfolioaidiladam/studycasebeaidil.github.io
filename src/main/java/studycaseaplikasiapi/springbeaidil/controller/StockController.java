@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import studycaseaplikasiapi.springbeaidil.entity.Stock;
 import studycaseaplikasiapi.springbeaidil.model.StockDTO;
 import studycaseaplikasiapi.springbeaidil.service.StockService;
@@ -52,6 +53,18 @@ public class StockController {
         log.info("Created stock: {}", createdStock);
         return new ResponseEntity<>(createdStock, HttpStatus.CREATED);
     }
+
+    /*@PostMapping("/upload")
+    public ResponseEntity<String> handleFileUpload(@RequestParam("gambar") MultipartFile gambar) {
+        if (gambar == null || gambar.isEmpty()) {
+            return ResponseEntity.badRequest().body("File is missing");
+        }
+
+        String contentType = gambar.getContentType();
+        if (contentType == null) {
+            return ResponseEntity.badRequest().body("Content type is missing");
+        }
+    }*/
 
     @GetMapping
     public List<Stock> listStock() {
