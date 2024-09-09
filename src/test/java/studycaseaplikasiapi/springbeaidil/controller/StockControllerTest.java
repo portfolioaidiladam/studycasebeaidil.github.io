@@ -39,7 +39,7 @@ public class StockControllerTest {
     }
 */
 
-    @Test
+   /* @Test
     public void testCreateStock() throws Exception {
         StockDTO stockDTO = new StockDTO();
         stockDTO.setNamaBarang("Test Item");
@@ -56,5 +56,24 @@ public class StockControllerTest {
                         .content(objectMapper.writeValueAsString(stockDTO))
                         //.andExpect(status().isCreated())
         );
+    }*/
+
+    @Test
+    public void testCreateStock() throws Exception {
+        MockMultipartFile image = new MockMultipartFile("gambarBarang", "gambar.png", "images/png", "dummy".getBytes());
+
+        StockDTO stockDTO = new StockDTO(null, "Barang A", 100, "12345", null, image, "admin", null);
+
+        mockMvc.perform(multipart("/api/stocks/create")
+                        .file("gambarBarang", image.getBytes())
+                        .param("namaBarang", "Barang A")
+                        .param("jumlahStok", "100")
+                        .param("nomorSeri", "12345")
+                        .accept(MediaType.APPLICATION_JSON)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(stockDTO))
+                        .param("createdBy", "admin"))
+                .andExpect(status().isCreated())
+                .andDo(result -> log.info("Response: {}", result.getResponse().getContentAsString()));
     }
 }

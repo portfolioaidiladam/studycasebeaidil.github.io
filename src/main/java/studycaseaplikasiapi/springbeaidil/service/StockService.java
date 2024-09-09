@@ -37,7 +37,7 @@ public class StockService {
         stock.setNamaBarang(stockDTO.getNamaBarang());
         stock.setJumlahStok(stockDTO.getJumlahStok());
         stock.setNomorSeri(stockDTO.getNomorSeri());
-        //stock.setAdditionalInfo(new objectMapper().writeValueAsString(stockDTO.getAdditionalInfo()));
+        stock.setAdditionalInfo(new ObjectMapper().writeValueAsString(stockDTO.getAdditionalInfo()));
         stock.setGambarBarang(stockDTO.getGambarBarang().getBytes());
         stock.setCreatedBy(stockDTO.getCreatedBy());
         stock.setCreatedAt(LocalDateTime.now());

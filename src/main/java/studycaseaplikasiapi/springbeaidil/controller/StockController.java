@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 import studycaseaplikasiapi.springbeaidil.entity.Stock;
 import studycaseaplikasiapi.springbeaidil.model.StockDTO;
 import studycaseaplikasiapi.springbeaidil.service.StockService;
@@ -54,13 +53,8 @@ public class StockController {
         return new ResponseEntity<>(createdStock, HttpStatus.CREATED);
     }
 
-   /* @GetMapping
-    public List<Stock> listStock() {
-        return stockService.listStock();
-    }*/
-
     @GetMapping
-    public List<Stock> listStocks() {
+    public List<Stock> listStock() {
         return stockService.listStock();
     }
 
