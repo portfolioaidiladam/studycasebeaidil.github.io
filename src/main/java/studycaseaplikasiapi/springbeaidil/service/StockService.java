@@ -29,8 +29,8 @@ public class StockService {
     }*/
 
     public Stock createStock(StockDTO stockDTO) throws Exception {
-        if (!stockDTO.getGambarBarang().getContentType().equals("image/jpeg") &&
-                !stockDTO.getGambarBarang().getContentType().equals("image/png")) {
+        if (!stockDTO.getGambarBarang().getContentType().equals("images/jpeg") &&
+                !stockDTO.getGambarBarang().getContentType().equals("images/png")) {
             throw new IllegalArgumentException("Only JPG and PNG images are allowed");
         }
         Stock stock = new Stock();
