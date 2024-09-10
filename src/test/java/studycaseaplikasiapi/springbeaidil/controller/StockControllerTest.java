@@ -64,7 +64,7 @@ public class StockControllerTest {
 
         StockDTO stockDTO = new StockDTO(null, "Barang A", 100, "12345", null, image, "admin", null);
 
-        mockMvc.perform(multipart("/api/stocks/create")
+        mockMvc.perform(multipart("/api/stock/create")
                         .file("gambarBarang", image.getBytes())
                         .param("namaBarang", "Barang A")
                         .param("jumlahStok", "100")
