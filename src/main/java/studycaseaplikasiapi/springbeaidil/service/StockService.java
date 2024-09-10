@@ -4,10 +4,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 import studycaseaplikasiapi.springbeaidil.entity.Stock;
 import studycaseaplikasiapi.springbeaidil.model.StockDTO;
+import studycaseaplikasiapi.springbeaidil.model.StockDTOResponse;
+import studycaseaplikasiapi.springbeaidil.model.UpdateStockDTO;
 import studycaseaplikasiapi.springbeaidil.repository.StockRepository;
-import java.io.IOException;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -24,15 +27,9 @@ public class StockService {
     private ObjectMapper objectMapper;
 
 
-    /*public Stock createStock(Stock stock) {
-        return stockRepository.save(stock);
-    }*/
+    @Transactional
+    public StockDTOResponse createStock(StockDTO stockDTO) throws Exception {
 
-    public Stock createStock(StockDTO stockDTO) throws Exception {
-        if (!stockDTO.getGambarBarang().getContentType().equals("images/jpeg") &&
-                !stockDTO.getGambarBarang().getContentType().equals("images/png")) {
-            throw new IllegalArgumentException("Only JPG and PNG images are allowed");
-        }
         Stock stock = new Stock();
         stock.setNamaBarang(stockDTO.getNamaBarang());
         stock.setJumlahStok(stockDTO.getJumlahStok());
@@ -42,7 +39,29 @@ public class StockService {
         stock.setCreatedBy(stockDTO.getCreatedBy());
         stock.setCreatedAt(LocalDateTime.now());
 
-        return stockRepository.save(stock);
+        stockRepository.save(stock);
+
+        return toStockResponse(stock);
+
+    }
+
+    private StockDTOResponse toStockResponse(Stock stock) {
+        return StockDTOResponse.builder()
+                .namaBarang(stock.getNamaBarang())
+                .jumlahStok(stock.getJumlahStok())
+                .nomorSeri(stock.getNomorSeri())
+                .createdBy(stock.getCreatedBy())
+                .id(stock.getId())
+                .build();
+    }
+
+    private void validateImage(MultipartFile image) {
+        if (image != null) {
+            String contentType = image.getContentType();
+            if (!"images/jpeg".equals(contentType) && !"images/png".equals(contentType)) {
+                throw new IllegalArgumentException("Only JPG and PNG images are allowed");
+            }
+        }
     }
 
     public List<Stock> listStock() {
@@ -52,15 +71,18 @@ public class StockService {
     public Optional<Stock> getStockDetail(Long id) {
         return stockRepository.findById(id);
     }
-
-    public Stock updateStock(Long id, Stock stockDetails) {
+    @Transactional
+    public StockDTOResponse updateStock(Long id, UpdateStockDTO stockDetails) {
         Stock stock = stockRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Stock not found"));
         stock.setNamaBarang(stockDetails.getNamaBarang());
         stock.setJumlahStok(stockDetails.getJumlahStok());
         stock.setNomorSeri(stockDetails.getNomorSeri());
+        stock.setAdditionalInfo(stockDetails.getAdditionalInfo());
         stock.setUpdatedBy(stockDetails.getUpdatedBy());
-        return stockRepository.save(stock);
+        stockRepository.save(stock);
+        return toStockResponse(stock);
+
     }
 
     public void deleteStock(Long id) {

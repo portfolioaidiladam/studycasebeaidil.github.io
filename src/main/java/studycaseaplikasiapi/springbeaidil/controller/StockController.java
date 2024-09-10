@@ -2,15 +2,15 @@ package studycaseaplikasiapi.springbeaidil.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import studycaseaplikasiapi.springbeaidil.entity.Stock;
 import studycaseaplikasiapi.springbeaidil.model.StockDTO;
+import studycaseaplikasiapi.springbeaidil.model.StockDTOResponse;
+import studycaseaplikasiapi.springbeaidil.model.UpdateStockDTO;
 import studycaseaplikasiapi.springbeaidil.service.StockService;
 
-import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -21,29 +21,9 @@ public class StockController {
     @Autowired
     private StockService stockService;
 
-    /*@PostMapping
-    public ResponseEntity<Stock> createStock(@RequestBody StockDTO stockDTO,
-                                            //  @RequestParam ("gambar") MultipartFile gambar
-                                             @RequestPart(name = "gambar") MultipartFile gambar
-                                            ) {
-        // validate MIME Type (JPG, PNG)
-        if (!gambar.getContentType().equals("images/jpeg") && !gambar.getContentType().equals("images/png")) {
-            return ResponseEntity.badRequest().body(null);
-        }
 
-        Stock stock = Stock.builder()
-                .namaBarang(stockDTO.getNamaBarang())
-                .jumlahStok(stockDTO.getJumlahStok())
-                .nomorSeri(stockDTO.getNomorSeri())
-                //.gambarBarang(gambar.getBytes())
-                .additionalInfo(stockDTO.getAdditionalInfo())
-                .createdBy(stockDTO.getCreatedBy())
-                .build();
-        return ResponseEntity.ok(stockService.createStock(stock));
-    }*/
 
-    @PostMapping("/create")
-    public ResponseEntity<Stock> createStock(@ModelAttribute StockDTO stockDTO) throws IOException {
+    /*public ResponseEntity<Stock> createStock(@ModelAttribute StockDTO stockDTO) throws IOException {
         Stock createdStock = null;
         try {
             createdStock = stockService.createStock(stockDTO);
@@ -53,8 +33,15 @@ public class StockController {
         log.info("Created stock: {}", createdStock);
         return new ResponseEntity<>(createdStock, HttpStatus.CREATED);
     }
+*/
+    @PostMapping("/create")
+    public ResponseEntity<StockDTOResponse> createStock(@ModelAttribute StockDTO stockDTO) throws Exception {
+        log.info("Creating new stock: {}", stockDTO);
+        StockDTOResponse createdStock = stockService.createStock(stockDTO);
+        return ResponseEntity.ok(createdStock);
+    }
 
-    /*@PostMapping("/upload")
+    @PostMapping("/upload")
     public ResponseEntity<String> handleFileUpload(@RequestParam("gambar") MultipartFile gambar) {
         if (gambar == null || gambar.isEmpty()) {
             return ResponseEntity.badRequest().body("File is missing");
@@ -64,7 +51,8 @@ public class StockController {
         if (contentType == null) {
             return ResponseEntity.badRequest().body("Content type is missing");
         }
-    }*/
+        return null;
+    }
 
     @GetMapping
     public List<Stock> listStock() {
@@ -80,7 +68,7 @@ public class StockController {
 
 
 
-    @PutMapping("/{id}")
+   /* @PutMapping("/{id}")
     public ResponseEntity<Stock> updateStock(@PathVariable Long id, @RequestBody StockDTO stockDTO) {
         Stock stock = Stock.builder()
                 .namaBarang(stockDTO.getNamaBarang())
@@ -90,6 +78,13 @@ public class StockController {
                 .updatedBy(stockDTO.getUpdatedBy())
                 .build();
         return ResponseEntity.ok(stockService.updateStock(id, stock));
+    }*/
+
+    @PutMapping("/{id}")
+    public ResponseEntity<StockDTOResponse> updateStock(@PathVariable Long id, @ModelAttribute UpdateStockDTO updateStockDTO) {
+        log.info("Updating stock ID: {}", id);
+        StockDTOResponse updatedStock = stockService.updateStock(id, updateStockDTO);
+        return ResponseEntity.ok(updatedStock);
     }
 
     @DeleteMapping("/{id}")

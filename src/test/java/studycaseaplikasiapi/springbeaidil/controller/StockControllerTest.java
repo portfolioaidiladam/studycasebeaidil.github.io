@@ -73,7 +73,7 @@ public class StockControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(stockDTO))
                         .param("createdBy", "admin"))
-                .andExpect(status().isCreated())
+                .andExpect(status().isOk())
                 .andDo(result -> log.info("Response: {}", result.getResponse().getContentAsString()));
     }
 }

@@ -17,3 +17,5 @@ CREATE TABLE stock (
 
 select *
 from stock;
+
+truncate stock;
