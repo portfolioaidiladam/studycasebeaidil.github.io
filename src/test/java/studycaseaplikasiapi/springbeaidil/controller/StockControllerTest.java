@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
@@ -20,7 +22,7 @@ import studycaseaplikasiapi.springbeaidil.model.UpdateStockDTO;
 import studycaseaplikasiapi.springbeaidil.service.StockService;
 
 
-
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -44,6 +46,7 @@ public class StockControllerTest {
     private StockDTO stockDTO;
     private StockDTOResponse stockDTOResponse;
     private UpdateStockDTO updateStockDTO;
+    private StockController stockController;
 
     @BeforeEach
     public void setUp() {
@@ -89,6 +92,20 @@ public class StockControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").value(1L));
     }
+
+   /* @Test
+    public void testHandleFileUpload() {
+        MockMultipartFile file = new MockMultipartFile(
+                "gambar",
+                "gambar.png",
+                "images/png",
+                "dummy content".getBytes()
+        );
+
+        ResponseEntity<String> response = stockController.handleFileUpload(file);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+    }*/
     @Test
     public void testUpdateStock() throws Exception {
         UpdateStockDTO updateStockDTO = UpdateStockDTO.builder()
