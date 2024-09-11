@@ -84,7 +84,11 @@ public class StockControllerTest {
                 .andExpect(jsonPath("$.jumlahStok").value(stockDTO.getJumlahStok()))
                 .andExpect(jsonPath("$.nomorSeri").value(stockDTO.getNomorSeri()));
     }
-
+    @Test
+    public void testGetStockList() throws Exception {
+        mockMvc.perform(get("/api/stock", 1L))
+                .andExpect(status().isOk());
+    }
 
     @Test
     public void testGetStockDetail() throws Exception {
