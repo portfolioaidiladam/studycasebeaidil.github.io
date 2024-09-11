@@ -87,7 +87,7 @@ public class StockControllerTest {
     @Test
     public void testGetStockList() throws Exception {
         mockMvc.perform(get("/api/stock", 1L))
-                .andExpect(status().isOk());
+                .andExpect(status().isOk());//
     }
 
     @Test
