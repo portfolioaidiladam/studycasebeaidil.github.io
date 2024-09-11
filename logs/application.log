@@ -1,29 +1,28 @@
-2024-09-11T00:18:53.179+07:00  INFO 19176 --- [Aplikasi APIstudycase Springbeaidil] [main] s.s.controller.StockControllerTest       : Starting StockControllerTest using Java 22.0.2 with PID 19176 (started by Aidil Adam in E:\Study Case BE BANK DKI\aplikasi-apistudycase-springbeaidil\aplikasi-apistudycase-springbeaidil)
-2024-09-11T00:18:53.195+07:00  INFO 19176 --- [Aplikasi APIstudycase Springbeaidil] [main] s.s.controller.StockControllerTest       : No active profile set, falling back to 1 default profile: "default"
-2024-09-11T00:18:54.431+07:00  INFO 19176 --- [Aplikasi APIstudycase Springbeaidil] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-09-11T00:18:54.556+07:00  INFO 19176 --- [Aplikasi APIstudycase Springbeaidil] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 99 ms. Found 1 JPA repository interface.
-2024-09-11T00:18:55.447+07:00  INFO 19176 --- [Aplikasi APIstudycase Springbeaidil] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
-2024-09-11T00:18:55.463+07:00  INFO 19176 --- [Aplikasi APIstudycase Springbeaidil] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-09-11T00:18:55.463+07:00  INFO 19176 --- [Aplikasi APIstudycase Springbeaidil] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
-2024-09-11T00:18:55.556+07:00  INFO 19176 --- [Aplikasi APIstudycase Springbeaidil] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-09-11T00:18:55.556+07:00  INFO 19176 --- [Aplikasi APIstudycase Springbeaidil] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2317 ms
-2024-09-11T00:18:55.838+07:00  INFO 19176 --- [Aplikasi APIstudycase Springbeaidil] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-09-11T00:18:55.931+07:00  INFO 19176 --- [Aplikasi APIstudycase Springbeaidil] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
-2024-09-11T00:18:55.994+07:00  INFO 19176 --- [Aplikasi APIstudycase Springbeaidil] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-09-11T00:18:56.431+07:00  INFO 19176 --- [Aplikasi APIstudycase Springbeaidil] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-09-11T00:18:56.478+07:00  INFO 19176 --- [Aplikasi APIstudycase Springbeaidil] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-09-11T00:18:56.978+07:00  INFO 19176 --- [Aplikasi APIstudycase Springbeaidil] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@72c704f1
-2024-09-11T00:18:56.978+07:00  INFO 19176 --- [Aplikasi APIstudycase Springbeaidil] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-09-11T00:18:58.128+07:00  INFO 19176 --- [Aplikasi APIstudycase Springbeaidil] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-09-11T00:18:58.159+07:00  INFO 19176 --- [Aplikasi APIstudycase Springbeaidil] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-09-11T00:18:58.644+07:00  WARN 19176 --- [Aplikasi APIstudycase Springbeaidil] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-09-11T00:18:59.097+07:00  INFO 19176 --- [Aplikasi APIstudycase Springbeaidil] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring TestDispatcherServlet ''
-2024-09-11T00:18:59.097+07:00  INFO 19176 --- [Aplikasi APIstudycase Springbeaidil] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2024-09-11T00:18:59.097+07:00  INFO 19176 --- [Aplikasi APIstudycase Springbeaidil] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
-2024-09-11T00:18:59.175+07:00  INFO 19176 --- [Aplikasi APIstudycase Springbeaidil] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 53660 (http) with context path '/'
-2024-09-11T00:18:59.191+07:00  INFO 19176 --- [Aplikasi APIstudycase Springbeaidil] [main] s.s.controller.StockControllerTest       : Started StockControllerTest in 6.703 seconds (process running for 8.672)
-2024-09-11T00:18:59.925+07:00  INFO 19176 --- [Aplikasi APIstudycase Springbeaidil] [main] s.s.controller.StockController           : Creating new stock: StockDTO(id=null, namaBarang=Barang A, jumlahStok=100, nomorSeri=12345, additionalInfo=null, gambarBarang=org.springframework.mock.web.MockMultipartFile@1766b009, createdBy=admin, updatedBy=null)
-2024-09-11T00:19:00.050+07:00  INFO 19176 --- [Aplikasi APIstudycase Springbeaidil] [main] s.s.controller.StockControllerTest       : Response: {"namaBarang":"Barang A","jumlahStok":100,"nomorSeri":"12345","createdBy":"admin","id":7}
-2024-09-11T00:19:00.081+07:00  INFO 19176 --- [Aplikasi APIstudycase Springbeaidil] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-09-11T00:19:00.097+07:00  INFO 19176 --- [Aplikasi APIstudycase Springbeaidil] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-09-11T00:19:00.113+07:00  INFO 19176 --- [Aplikasi APIstudycase Springbeaidil] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-09-11T08:54:14.723+07:00  INFO 3596 --- [Aplikasi APIstudycase Springbeaidil] [main] s.s.controller.StockControllerTest       : Starting StockControllerTest using Java 22.0.2 with PID 3596 (started by Aidil Adam in E:\Study Case BE BANK DKI\aplikasi-apistudycase-springbeaidil\aplikasi-apistudycase-springbeaidil)
+2024-09-11T08:54:14.757+07:00  INFO 3596 --- [Aplikasi APIstudycase Springbeaidil] [main] s.s.controller.StockControllerTest       : No active profile set, falling back to 1 default profile: "default"
+2024-09-11T08:54:15.900+07:00  INFO 3596 --- [Aplikasi APIstudycase Springbeaidil] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-11T08:54:15.996+07:00  INFO 3596 --- [Aplikasi APIstudycase Springbeaidil] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 75 ms. Found 1 JPA repository interface.
+2024-09-11T08:54:16.889+07:00  INFO 3596 --- [Aplikasi APIstudycase Springbeaidil] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2024-09-11T08:54:16.913+07:00  INFO 3596 --- [Aplikasi APIstudycase Springbeaidil] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-11T08:54:16.914+07:00  INFO 3596 --- [Aplikasi APIstudycase Springbeaidil] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-11T08:54:17.037+07:00  INFO 3596 --- [Aplikasi APIstudycase Springbeaidil] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-11T08:54:17.038+07:00  INFO 3596 --- [Aplikasi APIstudycase Springbeaidil] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2243 ms
+2024-09-11T08:54:17.281+07:00  INFO 3596 --- [Aplikasi APIstudycase Springbeaidil] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-11T08:54:17.387+07:00  INFO 3596 --- [Aplikasi APIstudycase Springbeaidil] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-11T08:54:17.443+07:00  INFO 3596 --- [Aplikasi APIstudycase Springbeaidil] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-09-11T08:54:17.663+07:00  INFO 3596 --- [Aplikasi APIstudycase Springbeaidil] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-11T08:54:17.699+07:00  INFO 3596 --- [Aplikasi APIstudycase Springbeaidil] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-11T08:54:18.305+07:00  INFO 3596 --- [Aplikasi APIstudycase Springbeaidil] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@182fd26b
+2024-09-11T08:54:18.308+07:00  INFO 3596 --- [Aplikasi APIstudycase Springbeaidil] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-11T08:54:19.622+07:00  INFO 3596 --- [Aplikasi APIstudycase Springbeaidil] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-11T08:54:19.761+07:00  INFO 3596 --- [Aplikasi APIstudycase Springbeaidil] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-11T08:54:20.257+07:00  WARN 3596 --- [Aplikasi APIstudycase Springbeaidil] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-11T08:54:20.729+07:00  INFO 3596 --- [Aplikasi APIstudycase Springbeaidil] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring TestDispatcherServlet ''
+2024-09-11T08:54:20.729+07:00  INFO 3596 --- [Aplikasi APIstudycase Springbeaidil] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-09-11T08:54:20.730+07:00  INFO 3596 --- [Aplikasi APIstudycase Springbeaidil] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2024-09-11T08:54:20.810+07:00  INFO 3596 --- [Aplikasi APIstudycase Springbeaidil] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 57513 (http) with context path '/'
+2024-09-11T08:54:20.819+07:00  INFO 3596 --- [Aplikasi APIstudycase Springbeaidil] [main] s.s.controller.StockControllerTest       : Started StockControllerTest in 6.958 seconds (process running for 9.949)
+2024-09-11T08:54:20.960+07:00  INFO 3596 --- [Aplikasi APIstudycase Springbeaidil] [main] s.s.controller.StockController           : Updating stock ID: 1
+2024-09-11T08:54:21.220+07:00  INFO 3596 --- [Aplikasi APIstudycase Springbeaidil] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-11T08:54:21.223+07:00  INFO 3596 --- [Aplikasi APIstudycase Springbeaidil] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-09-11T08:54:21.243+07:00  INFO 3596 --- [Aplikasi APIstudycase Springbeaidil] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
