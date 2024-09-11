@@ -41,7 +41,7 @@ public class StockController {
         return ResponseEntity.ok(createdStock);
     }
 
-    /*@PostMapping("/upload")
+    @PostMapping("/upload")
     public ResponseEntity<String> handleFileUpload(@RequestParam("gambar") MultipartFile gambar) {
         if (gambar == null || gambar.isEmpty()) {
             return ResponseEntity.badRequest().body("File is missing");
@@ -52,7 +52,7 @@ public class StockController {
             return ResponseEntity.badRequest().body("Content type is missing");
         }
         return null;
-    }*/
+    }
 
     @GetMapping
     public List<Stock> listStock() {

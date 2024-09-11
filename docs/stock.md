@@ -1,4 +1,4 @@
-# Address API Spec
+# Stock API Spec
 
 ## Create Stock
 
